@@ -1,0 +1,14 @@
+ans.1-
+LOCK - Its an active low pin. It indicates that other system bus masters have not been allowed to gain control of the system bus while LOCK’ is active low(0). The LOCK signal will be active until the completion of the next instruction.
+
+TEST-This examined by a ‘WAIT’ instruction. If the TEST pin goes low(0), execution will continue, else the processor remains in an idle state. The input is internally synchronized during each of the clock cycle on leading edge of the clock.
+QS1,QS0 - Queue Status. These signals indicate the status of the internal 8086 instruction queue
+
+INTR - Interrupt Request. This is triggered input. This is sampled during the last clock cycles of each instruction for determining the availability of the request. If any interrupt request is found pending, the processor enters the interrupt acknowledge cycle. This can be internally masked after resulting the interrupt enable flag. This signal is active high(1) and has been synchronized internally.
+
+BHE - Bus High Enable/Status. During T1 it is low. It is used to enable data onto the most significant half of data bus, D8-D15. 8-bit device connected to upper half of the data bus use BHE (Active Low) signal. It is multiplexed with status signal S7. S7 signal is available during T2, T3 and T4.
+
+
+ans.2 -
+
+
