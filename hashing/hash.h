@@ -1,5 +1,4 @@
 #include<iostream>
-#include "hashtable.h"
 #include<cstring>
 using namespace std ;
 template< typename T >
@@ -82,6 +81,36 @@ void insert(string key,T val){
    		rehash();
    }
 }
+
+
+void erase(string  key){
+    int idx = hash(key) ;
+    Node<T>* temp = table[idx] ;
+    if(temp->key == key){
+        table[idx] = temp->next ;
+        temp->next  = NULL ;
+        delete(temp) ;
+        current-- ;
+        return ;
+
+    }
+
+    while(temp->next != NULL){
+        if(temp->next->key == key){
+             Node<T>* t = temp->next;
+             temp->next = t->next ;
+             delete(t) ;
+             return ;
+        }
+        temp = temp->next ;
+
+    }
+    return ;
+}
+
+
+
+ 
 
 T* search(string key){
 	int idx = hash(key) ;
